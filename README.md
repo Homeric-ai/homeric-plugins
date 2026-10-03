@@ -61,5 +61,10 @@ You can ask your agent at any time what Homeric DX knows about you, to export it
 | `.agents/plugins/marketplace.json` | The Codex marketplace (`homeric`). |
 | `codex/homeric-dx/` | The plugin for Codex. |
 | `cursor/homeric-dx/` | The plugin for Cursor. |
+| `LICENSE` | The license, also in each plugin's folder. |
 
 Each plugin's own README says what each part does. The session-summary hook (`hooks/session-digest.mjs`) counts a session's numbers on your machine from your agent's own transcript; the transcript never leaves your machine, only the numbers you confirm.
+
+## License
+
+Proprietary, see [LICENSE](LICENSE). You may install these plugins and use them to connect to Homeric's services; you may not otherwise copy, modify or redistribute them.

@@ -1,0 +1,17 @@
+Copyright (c) 2026 Homeric Technologies. All rights reserved.
+
+This license covers Homeric's plugins for coding agents
+(https://github.com/Homeric-ai/homeric-plugins): every file in them, including
+their manifests, commands, hooks and skill. The skill file in each plugin
+(skills/dx-companion/SKILL.md) names the Homeric Skills License v1.0; for these
+plugins, the terms are the ones below.
+
+You may install these plugins and use them, only to connect to Homeric's
+services. Installing copies them to your machine, and that copy is allowed.
+
+You may not otherwise copy, modify or redistribute them, in whole or in part,
+without Homeric's written permission.
+
+The plugins are provided "as is", without warranty of any kind.
+
+Questions: legal@homeric.ai
