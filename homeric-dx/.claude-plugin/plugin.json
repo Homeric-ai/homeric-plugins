@@ -1,0 +1,11 @@
+{
+  "name": "homeric-dx",
+  "version": "0.1.0",
+  "description": "Homeric DX, the developer-experience companion: friction logged as it happens, numbers-only session summaries you confirm, your monthly time split, private by design.",
+  "author": {
+    "name": "Homeric"
+  },
+  "homepage": "https://homeric.ai",
+  "license": "Proprietary",
+  "keywords": ["developer-experience", "dx", "friction", "mcp"]
+}

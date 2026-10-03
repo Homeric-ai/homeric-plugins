@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterShellExecution": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/hooks/session-digest.mjs\" --client cursor --record",
+        "timeout": 5
+      }
+    ],
+    "postToolUseFailure": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/hooks/session-digest.mjs\" --client cursor --record",
+        "timeout": 5
+      }
+    ],
+    "stop": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/hooks/session-digest.mjs\" --client cursor",
+        "timeout": 10,
+        "loop_limit": 1
+      }
+    ]
+  }
+}

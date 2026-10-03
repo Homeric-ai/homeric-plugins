@@ -1,0 +1,16 @@
+{
+  "description": "Homeric DX: at the end of a task, offer the numbers-only session summary (computed on this machine) for the person to confirm.",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-digest.mjs\" --client claude-code",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

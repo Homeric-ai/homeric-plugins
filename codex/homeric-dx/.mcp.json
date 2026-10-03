@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "homeric-dx": {
+      "type": "streamable-http",
+      "url": "https://mcp.homeric.ai/dx"
+    }
+  }
+}

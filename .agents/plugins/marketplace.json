@@ -1,0 +1,20 @@
+{
+  "name": "homeric",
+  "interface": {
+    "displayName": "Homeric"
+  },
+  "plugins": [
+    {
+      "name": "homeric-dx",
+      "source": {
+        "source": "local",
+        "path": "./codex/homeric-dx"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
