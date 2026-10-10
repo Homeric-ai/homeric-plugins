@@ -3,7 +3,7 @@ name: dx-companion
 description: "Work with Homeric DX, the developer-experience companion: when to check the person's DX status and consent, offer to log friction (with a category and the minutes lost), share a numbers-only session summary they confirm, and record their monthly time split, following its privacy rules. Use whenever the Homeric DX tools (dx_*) are available."
 license: "Proprietary: Homeric Skills License v1.0"
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 <!--
@@ -27,7 +27,7 @@ Homeric DX helps an engineer see and remove what slows them down, and gives thei
 1. **Agree once.** The first DX call asks the person to agree to the privacy promise. Nothing is stored before they do.
 2. **Friction, as it happens.** When something gets in their way, offer to log it, with your estimate of the time it cost. They confirm what is sent.
 3. **When a task ends, a summary.** Numbers only (time waiting on CI, flaky retries, interruptions, agent corrections), shown to the person before anything is sent: "y / edit / n".
-4. **Once a week, the check-in.** Three quick questions, in a form whose answers go straight to Homeric DX: you never see them. Where the client shows no form, only if they want to answer in chat.
+4. **Once a week, the check-in.** Three quick questions, in a panel or on the check-in page the tool links to; the answers go straight to Homeric DX: you never see them. In chat only if they want.
 5. **Once a month, the time split.** How their time went between new capabilities, maintenance, toil and support, in their words, as four percentages.
 6. **Their own view.** They can ask what DX knows about them at any time.
 
@@ -39,15 +39,15 @@ Principles: declare by confirming; numbers only from local work; give before you
 
 | Tool | When | What the person sees |
 |---|---|---|
-| `dx_status_get` | At the start of a session; when they ask what DX knows | The first time, the privacy promise to agree to (a form, or you show it). Then: consent date, this week's check-in, counts of what is stored. |
+| `dx_status_get` | At the start of a session; when they ask what DX knows | The first time, the privacy promise to agree to (a panel, or you show it). Then: consent date, this week's check-in, counts of what is stored. |
 | `dx_friction_log` | When something slows them down | The entry before it is stored (unless they asked you to log it). |
 | `dx_signals_submit` | When a task or session ends | The numbers-only summary, editable, before it is sent. |
-| `dx_pulse_get` | Once a week, when `dx_status_get` says the check-in is not done, or when they ask | Three questions in a form; without one, the questions for you to ask in chat, only if they want (their answers then pass through you). Never answer for them. |
+| `dx_pulse_get` | Once a week, when `dx_status_get` says the check-in is not done, or when they ask | Three questions in a panel; without one, a link to the check-in page for you to give them; in chat only if they want (their answers then pass through you). Never answer for them. |
 | `dx_time_declare` | Once a month, or when they bring it up | Nothing to confirm: you send the split they gave you. |
 
 Two ways a DX tool confirms something with the person:
 
-- **A form**, where the client shows one: the person answers it; you never see their answer go by.
+- **A panel**, for the consent where the host shows one: the person clicks; you never see their answer go by.
 - **In chat**, otherwise: the tool returns exactly what would be stored and a token. Show it to the person as is; call the tool again with the token only after they say yes; with changed values if they edit; not at all if they say no.
 
 Every DX tool except `dx_status_get` answers "call dx_status_get first" until the person has agreed to the current privacy promise.
