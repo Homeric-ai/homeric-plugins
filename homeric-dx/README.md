@@ -28,8 +28,8 @@ Then run `/homeric-dx:dx-status`: the first call signs you in to your Homeric wo
 | `.mcp.json` | The Homeric DX server, `https://mcp.homeric.ai/dx` (sign-in through your Homeric workspace). |
 | `skills/dx-companion/` | When to check your DX status, offer to log friction, share a session summary and record your time split, and the privacy rules your agent follows. The same skill the server serves. |
 | `commands/dx-status.md` | `/dx-status`: your status, and the privacy promise the first time. |
-| `commands/dx-checkin.md` | `/dx-checkin`: the weekly check-in, in a form where Claude Code shows one. |
-| `hooks/` | At the end of a task, `session-digest.mjs` counts the session's numbers on your machine (time waiting on builds and tests, flaky retries, tool failures, empty searches, corrections, reverted edits) from your agent's own transcript, and asks your agent to offer them through `dx_signals_submit`, which asks you to confirm or edit them first. Once per session, and only for a session of at least 10 minutes and 5 actions. The transcript never leaves your machine. Needs Node 18 or later. |
+| `commands/dx-checkin.md` | `/dx-checkin`: the weekly check-in, in a panel where your client shows one, else on a check-in page it links to. |
+| `hooks/` | `session-start.mjs`, at the start of the first session of the day on your machine, asks your agent to call `dx_status_get` quietly, without holding up your first request: the first time it asks you to agree to the privacy promise, and when your weekly check-in is due it offers it once, after your request is done. It makes no network call itself, and `HOMERIC_DX_SESSION_START=off` turns it off. At the end of a task, `session-digest.mjs` counts the session's numbers on your machine (time waiting on builds and tests, flaky retries, tool failures, empty searches, corrections, reverted edits) from your agent's own transcript, and asks your agent to offer them through `dx_signals_submit`, which asks you to confirm or edit them first. Once per session, and only for a session of at least 10 minutes and 5 actions. The transcript never leaves your machine. Needs Node 18 or later. |
 
 
 ## Your data

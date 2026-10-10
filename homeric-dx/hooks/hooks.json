@@ -1,6 +1,17 @@
 {
-  "description": "Homeric DX: at the end of a task, offer the numbers-only session summary (computed on this machine) for the person to confirm.",
+  "description": "Homeric DX: once a day at the start of a session, a quiet status call (consent the first time, the weekly check-in offer when it is due); at the end of a task, offer the numbers-only session summary (computed on this machine) for the person to confirm.",
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/session-start.mjs\" --client claude-code",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [

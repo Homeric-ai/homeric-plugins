@@ -11,7 +11,7 @@
       "name": "homeric-dx",
       "source": "./homeric-dx",
       "description": "Homeric DX, the developer-experience companion: friction logged as it happens, numbers-only session summaries you confirm, your monthly time split, private by design.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     }
   ]
 }

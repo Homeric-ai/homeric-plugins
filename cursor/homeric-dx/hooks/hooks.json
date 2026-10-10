@@ -1,6 +1,12 @@
 {
   "version": 1,
   "hooks": {
+    "sessionStart": [
+      {
+        "command": "node \"${CURSOR_PLUGIN_ROOT}/hooks/session-start.mjs\" --client cursor",
+        "timeout": 5
+      }
+    ],
     "afterShellExecution": [
       {
         "command": "node \"${CURSOR_PLUGIN_ROOT}/hooks/session-digest.mjs\" --client cursor --record",

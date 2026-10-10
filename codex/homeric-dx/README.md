@@ -13,7 +13,7 @@ codex plugin add homeric-dx@homeric
 
 Then, in Codex:
 
-1. **Trust the session hook once**: run `/hooks`, review `homeric-dx`'s `Stop` hook, and trust it. Codex runs a plugin's hooks only after you have reviewed them, and again after any change.
+1. **Trust the session hooks once**: run `/hooks`, review `homeric-dx`'s `SessionStart` and `Stop` hooks, and trust them. Codex runs a plugin's hooks only after you have reviewed them, and again after any change.
 2. Ask "what's my Homeric DX status?": the first call signs you in to your Homeric workspace and asks you to agree to the privacy promise.
 
 Optional, in `~/.codex/config.toml`, so Codex does not ask before the tools that only read your own data:
@@ -35,6 +35,6 @@ approval_mode = "approve"
 |---|---|
 | `.mcp.json` | The Homeric DX server, `https://mcp.homeric.ai/dx` (sign-in through your Homeric workspace). |
 | `skills/dx-companion/` | When to check your DX status, offer to log friction, share a session summary and record your time split, and the privacy rules Codex follows. The same skill the server serves. |
-| `hooks/` | At the end of a task, `session-digest.mjs` counts the session's numbers on your machine from Codex's own session log, and asks Codex to offer them through `dx_signals_submit`, which shows you the summary to confirm or edit first. Once per session, and only for a session of at least 10 minutes and 5 actions. The session log never leaves your machine. Needs Node 18 or later. |
+| `hooks/` | `session-start.mjs`, at the start of the first session of the day on your machine, asks your agent to call `dx_status_get` quietly, without holding up your first request: the first time it asks you to agree to the privacy promise, and when your weekly check-in is due it offers it once, after your request is done. It makes no network call itself, and `HOMERIC_DX_SESSION_START=off` turns it off. At the end of a task, `session-digest.mjs` counts the session's numbers on your machine from Codex's own session log, and asks Codex to offer them through `dx_signals_submit`, which shows you the summary to confirm or edit first. Once per session, and only for a session of at least 10 minutes and 5 actions. The session log never leaves your machine. Needs Node 18 or later. |
 
 Codex shows forms only with its `mcp_2026_07_28` feature; without it, Homeric DX asks in chat and you answer there.

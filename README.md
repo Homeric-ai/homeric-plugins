@@ -26,7 +26,7 @@ codex plugin marketplace add Homeric-ai/homeric-plugins
 codex plugin add homeric-dx@homeric
 ```
 
-Then, in Codex, run `/hooks` and trust `homeric-dx`'s `Stop` hook once (Codex runs a plugin's hooks only after you review them), and ask "what's my Homeric DX status?".
+Then, in Codex, run `/hooks` and trust `homeric-dx`'s `SessionStart` and `Stop` hooks once (Codex runs a plugin's hooks only after you review them), and ask "what's my Homeric DX status?".
 
 ### Cursor
 
@@ -57,13 +57,13 @@ You can ask your agent at any time what Homeric DX knows about you, to export it
 | Path | What it is |
 |---|---|
 | `.claude-plugin/marketplace.json` | The Claude Code marketplace (`homeric`), also read by VS Code. |
-| `homeric-dx/` | The plugin for Claude Code and VS Code: the Homeric DX server, the `dx-companion` skill, the `/dx-status` and `/dx-checkin` commands, and the session-summary hook. |
+| `homeric-dx/` | The plugin for Claude Code and VS Code: the Homeric DX server, the `dx-companion` skill, the `/dx-status` and `/dx-checkin` commands, and the session-start and session-summary hooks. |
 | `.agents/plugins/marketplace.json` | The Codex marketplace (`homeric`). |
 | `codex/homeric-dx/` | The plugin for Codex. |
 | `cursor/homeric-dx/` | The plugin for Cursor. |
 | `LICENSE` | The license, also in each plugin's folder. |
 
-Each plugin's own README says what each part does. The session-summary hook (`hooks/session-digest.mjs`) counts a session's numbers on your machine from your agent's own transcript; the transcript never leaves your machine, only the numbers you confirm.
+Each plugin's own README says what each part does. The session-start hook (`hooks/session-start.mjs`) asks your agent, once a day, to check your Homeric DX status quietly; it makes no network call itself. The session-summary hook (`hooks/session-digest.mjs`) counts a session's numbers on your machine from your agent's own transcript; the transcript never leaves your machine, only the numbers you confirm.
 
 ## License
 
